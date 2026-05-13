@@ -21,10 +21,10 @@ namespace BetterXP
             {
                 if (player == null) return;
 
-                // Give massive player XP
-                player.GainPlayerXP(500000);
+                
+                player.GainPlayerXP(500000000000);
 
-                // Give XP to ALL towers automatically (including Beast Handler)
+                
                 var allTowers = Game.instance.model.towers
                     .Select(t => t.name)
                     .Distinct();
