@@ -22,7 +22,7 @@ namespace BetterXP
                 if (player == null) return;
 
                 
-                player.GainPlayerXP(500000000000);
+                player.GainPlayerXP(5000000000000);
 
                 
                 var allTowers = Game.instance.model.towers
@@ -31,7 +31,7 @@ namespace BetterXP
 
                 foreach (var tower in allTowers)
                 {
-                    player.AddTowerXP(tower, 500000);
+                    player.AddTowerXP(tower, 500000000000);
                 }
 
                 MelonLogger.Msg("XP BOOST ACTIVATED 🚀");
