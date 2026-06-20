@@ -1,0 +1,51 @@
+using MelonLoader;
+using Harmony;
+using Il2CppAssets.Scripts.Unity.Player;
+using Il2CppAssets.Scripts.Unity.UI_New.Main.MapSelect;
+using Il2CppAssets.Scripts.Unity;
+using UnityEngine;
+using System.Linq;
+
+[assembly: MelonInfo(typeof(BetterXP.Main), "BetterXP", "1.0", "you")]
+[assembly: MelonGame("Ninja Kiwi", "BloonsTD6")]
+
+namespace BetterXP
+{
+    public class Main : MelonMod
+    {
+        static Btd6Player player;
+
+        public override void OnUpdate()
+        {
+            if (Input.GetKeyDown(KeyCode.F1))
+            {
+                if (player == null) return;
+
+                
+                player.GainPlayerXP(5000000000000);
+
+                
+                var allTowers = Game.instance.model.towers
+                    .Select(t => t.name)
+                    .Distinct();
+
+                foreach (var tower in allTowers)
+                {
+                    player.AddTowerXP(tower, 500000000000);
+                }
+
+                MelonLogger.Msg("XP BOOST ACTIVATED 🚀");
+            }
+        }
+
+        [HarmonyPatch(typeof(MapButton), "ShowMedal")]
+        public class GrabPlayerPatch
+        {
+            [HarmonyPrefix]
+            public static void Prefix(Btd6Player player)
+            {
+                Main.player = player;
+            }
+        }
+    }
+}
