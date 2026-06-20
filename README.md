@@ -84,7 +84,7 @@ Use Visual Studio project settings to compile as DLL files.
 
 - Some projects are Windows-specific (Snake Game, Startup Launcher)
 - Game modding files require additional frameworks and setup
-- All projects are experimental and educational in nature
+- All projects are experimental and harmless
 
 ---
 
@@ -96,8 +96,7 @@ Found a bug or have improvements? Feel free to open an issue or submit a pull re
 
 ## 📄 License
 
-No license specified. Use freely for educational and personal purposes.
+APACHE LICENSE V2
+read more aboht apache licence v2 in this GitHub repo or online
 
 ---
-
-**Topics:** `cpp` `utilities` `games`
